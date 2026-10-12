@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - GDSS Gidan Igwai</title>
+    <!-- Linking your external style.css file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SASHEN SAMAN SHAFIN (Header Banner) -->
+    <header>
+        <div class="container header-flex">
+            <div class="school-title">
+                <h2>GDSS GIDAN IGWAI</h2>
+                <p>Administrative Gateway</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SASHEN SHIGA (Admin Login Form) -->
+    <section class="portal-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h3>ADMIN LOGIN</h3>
+                <p>Select your operational role and provide authentication keys to access your workspace.</p>
+            </div>
+            
+            <!-- JavaScript processing form submission securely -->
+            <form id="loginForm" onsubmit="handleAdminAuth(event)" class="login-form">
+                
+                <!-- 1. ZAWAR MATSAYI (Role Selection Options) -->
+                <div class="form-group">
+                    <label for="user_role">Select Your Designation / Role</label>
+                    <select id="user_role" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; background-color: #fff; cursor: pointer;">
+                        <option value="">-- Choose Role --</option>
+                        <option value="student">Student Operations Officer (Student Records)</option>
+                        <option value="teacher">Staff Operations Officer (Teacher/Staff Records)</option>
+                    </select>
+                </div>
+
+                <!-- 2. AKWATIN USERNAME -->
+                <div class="form-group">
+                    <label for="admin_user">Username</label>
+                    <input type="text" id="admin_user" placeholder="Enter username" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <!-- 3. AKWATIN PASSWORD -->
+                <div class="form-group">
+                    <label for="admin_pass">Password</label>
+                    <input type="password" id="admin_pass" placeholder="••••••••" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <!-- LOG IN ACTION BUTTON -->
+                <button type="submit" class="login-btn">Log In ➔</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SASHE NA KARSHE (Footer) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Government Day Secondary School, Gidan Igwai, Sokoto. Secure Access Terminal.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE AUTHENTICATION ROUTING ENGINE (JavaScript) -->
+    <script>
+
+
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxDM-d3RJzrzHFOviDByXsLw_hFhbmKoPG2Dmqd9WUQFyeRigEohYF3chUSJh1GuMQ9sw/exec'; 
+        function handleAdminAuth(event) {
+            // Prevents the browser from reloading the page instantly
+            event.preventDefault();
+            
+            // Extract the user inputs from the form elements
+            const role = document.getElementById('user_role').value;
+            const user = document.getElementById('admin_user').value.trim();
+            const pass = document.getElementById('admin_pass').value;
+
+            // Conditional validation based on the selected administrative designation role
+            if (role === 'student') {
+                
+                // 1. Credentials Check for Student Operations Officer
+                if (user === "admin" && pass === "54321") {
+                    window.location.href = 'student-record.html';
+                } else {
+                    alert('Invalid Username or Password for Student Operations Officer!');
+                }
+
+            } else if (role === 'teacher') {
+                
+                // 2. Credentials Check for Staff Operations Officer (Teacher Records)
+                if (user === "admin" && pass === "12345") {
+                    window.location.href = 'teacher-record.html';
+                } else {
+                    alert('Invalid Username or Password for Staff Operations Officer!');
+                }
+
+            } else {
+                // Warning if the form is somehow submitted without choosing an option
+                alert('Please select your Operational Designation/Role before logging in.');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -66,6 +66,12 @@
                 <label>Middle Name</label>
                 <input type="text" id="middleName"  placeholder="Optional Name">
             </div>
+	<div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+
+
             <div class="form-group">
                 <label>Gender</label>
                 <select id="gender" required>
@@ -130,7 +136,7 @@
     const submitBtn = document.getElementById('submitBtn');
 
     // Wannan shi ne ainihin Web App URL dinka na dazo wanda ke aiki lafiya lau
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyfnqEDJOTBDazaIPR7xbZNLP1Iw3rW-IsPBRJc4vKqrc7YOFfyPOq52OPHLDd1bhxy/exec'; 
+    const WEB_APP_URL ='https://script.google.com/macros/s/AKfycbwCJrurq9zCYil49A_NVNjbaUSNU1uokg1amM5xv7hUjLEIChuMIqIjwpUYIQuTR3qG/exec'; 
 
     let hotoBase64 = ""; 
 
@@ -169,6 +175,7 @@
             surname: document.getElementById('surname').value,
             firstName: document.getElementById('firstName').value,
             middleName: document.getElementById('middleName').value,
+	    dob: document.getElementById('dob').value,
             gender: document.getElementById('gender').value,
             qualification: document.getElementById('qualification').value,
             staffType: document.getElementById('staffType').value,
